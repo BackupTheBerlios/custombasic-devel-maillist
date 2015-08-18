@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/custombasic-devel/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:custombasic-devel%40lists.berlios.de?Subject=Re%3A%20%5BCustombasic-devel%5D%20Re%3A%20Q%3A%20What%20Programing%20Language%20are%20we%20using%20for%20CustomBasic%20%28CB%29&In-Reply-To=%3C1cef6a90504250532215adf5c%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000002.html">
+   <LINK REL="Next"  HREF="000004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)</H1>
+    <B>Adam Clements</B> 
+    <A HREF="mailto:custombasic-devel%40lists.berlios.de?Subject=Re%3A%20%5BCustombasic-devel%5D%20Re%3A%20Q%3A%20What%20Programing%20Language%20are%20we%20using%20for%20CustomBasic%20%28CB%29&In-Reply-To=%3C1cef6a90504250532215adf5c%40mail.gmail.com%3E"
+       TITLE="[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)">adam.clements at gmail.com
+       </A><BR>
+    <I>Mon Apr 25 14:32:43 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000002.html">[Custombasic-devel] IRC Channels for CB
+</A></li>
+        <LI>Next message: <A HREF="000004.html">[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I am usually online from 9:00 PM GMT weekdays, though sometimes it can
+be as early as 6:00 PM GMT, weekends vary. I have been designing and
+playing with various ways to parse the code for the runtime, and I am
+thinking that some of the functions for splitting the line up into its
+constituent parts should be available to the interpreter as
+specialised functions to avoid doing the same work twice over. At the
+moment the runtime will incorporate the following commands, tell me if
+you think i've missed anything:
+
+variables($ and % string and int support for now)
+arithmetic, allocation (x=y and also basic string 'arithmetic'
+x$=&quot;Hello &quot; + &quot;World&quot;)
+If-Then-Else, AND NOT OR
+Goto (Debatable whether for loops/while loops/functions etc should be
+included in the runtime, as these could be implemented in the
+interpreter using these basic commands)
+Print (direct to screen or file)
+str$, mid$, val
+input (int or string, input masking)
+open &lt;filename&gt; for &lt;I/O&gt; as #
+
+These basic commands should be enough to get started with, then there
+are morte advanced graphics, locate, cls etc, but these have platform
+compatibility issues. Contact me with your thoughts.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000002.html">[Custombasic-devel] IRC Channels for CB
+</A></li>
+	<LI>Next message: <A HREF="000004.html">[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/custombasic-devel">More information about the Custombasic-devel
+mailing list</a><br>
+</body></html>

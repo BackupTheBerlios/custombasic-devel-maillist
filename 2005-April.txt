@@ -1,0 +1,899 @@
+From adam.clements at gmail.com  Mon Apr 25 00:50:23 2005
+From: adam.clements at gmail.com (Adam Clements)
+Date: Sun, 24 Apr 2005 23:50:23 +0100
+Subject: [Custombasic-devel] Avoiding confusion
+Message-ID: <1cef6a905042415506a3383e4@mail.gmail.com>
+
+To avoid confusion in future I think it should be standardised that we
+refer to the micro interpreter as the runtime and the full interpreter
+as the interpreter.
+
+
+From ajdlinux at gmail.com  Mon Apr 25 00:53:07 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Mon, 25 Apr 2005 08:53:07 +1000
+Subject: [Custombasic-devel] Re: Avoiding confusion
+Message-ID: <1007a32a0504241553522ed9de@mail.gmail.com>
+
+OK. I officially change the name of the micro-interpreter to the runtime!
+ Andrew
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050425/2a583ea2/attachment.html>
+
+From ajdlinux at gmail.com  Mon Apr 25 03:34:38 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Mon, 25 Apr 2005 11:34:38 +1000
+Subject: [Custombasic-devel] IRC Channels for CB
+Message-ID: <1007a32a05042418342583742e@mail.gmail.com>
+
+I've set up some CustomBASIC channels on AfterNet (http://www.afternet.org). 
+To use them:
+1. Register on the AfterNET site.
+2. Connect to irc.afternet.org <http://irc.afternet.org>
+3. Join #custombasic
+ For QB Stuff members who want to join the mailing list, go to 
+lists.berlios.de <http://lists.berlios.de> and click on custombasic-devel.
+ Andrew
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050425/e7a7ff34/attachment.html>
+
+From adam.clements at gmail.com  Mon Apr 25 14:32:43 2005
+From: adam.clements at gmail.com (Adam Clements)
+Date: Mon, 25 Apr 2005 13:32:43 +0100
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1007a32a0504242125103e9a4d@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <b4c2547c050423180764fcb766@mail.gmail.com>
+	 <1007a32a0504240341e518314@mail.gmail.com>
+	 <b4c2547c0504240533b61f87@mail.gmail.com>
+	 <1007a32a0504241535519f5682@mail.gmail.com>
+	 <b4c2547c05042420233f678004@mail.gmail.com>
+	 <1007a32a0504242057b9bc5aa@mail.gmail.com>
+	 <1007a32a05042420581a18a64f@mail.gmail.com>
+	 <b4c2547c050424211842a742c7@mail.gmail.com>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+Message-ID: <1cef6a90504250532215adf5c@mail.gmail.com>
+
+I am usually online from 9:00 PM GMT weekdays, though sometimes it can
+be as early as 6:00 PM GMT, weekends vary. I have been designing and
+playing with various ways to parse the code for the runtime, and I am
+thinking that some of the functions for splitting the line up into its
+constituent parts should be available to the interpreter as
+specialised functions to avoid doing the same work twice over. At the
+moment the runtime will incorporate the following commands, tell me if
+you think i've missed anything:
+
+variables($ and % string and int support for now)
+arithmetic, allocation (x=y and also basic string 'arithmetic'
+x$="Hello " + "World")
+If-Then-Else, AND NOT OR
+Goto (Debatable whether for loops/while loops/functions etc should be
+included in the runtime, as these could be implemented in the
+interpreter using these basic commands)
+Print (direct to screen or file)
+str$, mid$, val
+input (int or string, input masking)
+open <filename> for <I/O> as #
+
+These basic commands should be enough to get started with, then there
+are morte advanced graphics, locate, cls etc, but these have platform
+compatibility issues. Contact me with your thoughts.
+
+
+From computerkidwanttabe at gmail.com  Mon Apr 25 20:25:27 2005
+From: computerkidwanttabe at gmail.com (Joe Computer Kid)
+Date: Mon, 25 Apr 2005 13:25:27 -0500
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1cef6a90504250532215adf5c@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1007a32a0504240341e518314@mail.gmail.com>
+	 <b4c2547c0504240533b61f87@mail.gmail.com>
+	 <1007a32a0504241535519f5682@mail.gmail.com>
+	 <b4c2547c05042420233f678004@mail.gmail.com>
+	 <1007a32a0504242057b9bc5aa@mail.gmail.com>
+	 <1007a32a05042420581a18a64f@mail.gmail.com>
+	 <b4c2547c050424211842a742c7@mail.gmail.com>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+Message-ID: <b4c2547c05042511254ebcf336@mail.gmail.com>
+
+> ... At the moment the runtime will incorporate the following
+> commands, tell me if you think i've missed anything:
+>  ...
+> If-Then-Else ...
+Can you make a ElseIf (else if) logical branch?
+
+-- 
+Computer Kid Out
+
+
+From adam.clements at gmail.com  Mon Apr 25 20:37:05 2005
+From: adam.clements at gmail.com (Adam Clements)
+Date: Mon, 25 Apr 2005 19:37:05 +0100
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <b4c2547c05042511254ebcf336@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <b4c2547c0504240533b61f87@mail.gmail.com>
+	 <1007a32a0504241535519f5682@mail.gmail.com>
+	 <b4c2547c05042420233f678004@mail.gmail.com>
+	 <1007a32a0504242057b9bc5aa@mail.gmail.com>
+	 <1007a32a05042420581a18a64f@mail.gmail.com>
+	 <b4c2547c050424211842a742c7@mail.gmail.com>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+Message-ID: <1cef6a9050425113761443ba6@mail.gmail.com>
+
+Could do, only thing is, originally this was meant to be the simplest
+possible version and all higher level convenience functions would be
+taken care of later. This would mean that things like having
+PRINT "Hello " + world$ + str$(5+5)
+
+would in full be:
+
+output$ = "Hello " + world$
+world$ = str$(5+5)
+output$ = output$ + world$
+PRINT output$
+(N.B. world$ re-used for convenience)
+
+do you get my point? advanced compound functions I thought were to be
+taken care of by the interpreter and the runtime jsut cope with
+smaller chunks. I'm not saying that taht's the right way to do it
+because its obviously goign to be a lot slower that way, the more code
+the interpreter does which could be performed directly by the runtime,
+the bulkier teh project will be, but that is how i understood the
+original brief.
+
+
+From computerkidwanttabe at gmail.com  Mon Apr 25 23:32:34 2005
+From: computerkidwanttabe at gmail.com (Joe Computer Kid)
+Date: Mon, 25 Apr 2005 16:32:34 -0500
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1cef6a9050425113761443ba6@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1007a32a0504241535519f5682@mail.gmail.com>
+	 <b4c2547c05042420233f678004@mail.gmail.com>
+	 <1007a32a0504242057b9bc5aa@mail.gmail.com>
+	 <1007a32a05042420581a18a64f@mail.gmail.com>
+	 <b4c2547c050424211842a742c7@mail.gmail.com>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+Message-ID: <b4c2547c05042514326733f294@mail.gmail.com>
+
+That was what I was thinking also.
+What I meant was... that if we could have a full IF statement
+(If-ElseIf-Else) we could build functions in the interpreter that
+would be cleaner in code then having so many logical branches nested
+in side each other.
+
+-- 
+Computer Kid Out
+
+
+From adam.clements at gmail.com  Mon Apr 25 23:46:15 2005
+From: adam.clements at gmail.com (Adam Clements)
+Date: Mon, 25 Apr 2005 22:46:15 +0100
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <b4c2547c05042514326733f294@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <b4c2547c05042420233f678004@mail.gmail.com>
+	 <1007a32a0504242057b9bc5aa@mail.gmail.com>
+	 <1007a32a05042420581a18a64f@mail.gmail.com>
+	 <b4c2547c050424211842a742c7@mail.gmail.com>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+Message-ID: <1cef6a90504251446708d5c80@mail.gmail.com>
+
+Okay then, but there are many other things to make the code cleaner
+too, and if we simplify the syntax too much then it stops being BASIC
+really. we need to decide on the syntax in its entirety before I code
+any more of the runtime, there have just been vague ideas of what it
+should do so far. Perhaps it would be more efficient if we got more C
+coders in and made the majority of the interpreter in that and then
+wrote an editor in the basic itself? I'm merely thinking of speed
+issues here.. all these things need to be decided and put into a full
+specification.
+
+
+From ajdlinux at gmail.com  Tue Apr 26 02:01:44 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Tue, 26 Apr 2005 10:01:44 +1000
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1cef6a90504251446708d5c80@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1007a32a0504242057b9bc5aa@mail.gmail.com>
+	 <1007a32a05042420581a18a64f@mail.gmail.com>
+	 <b4c2547c050424211842a742c7@mail.gmail.com>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+Message-ID: <1007a32a0504251701cab2331@mail.gmail.com>
+
+We should implement the least we can in the runtime, so loops are done with 
+GOTOs and ElseIfs are implemented in the interpreter. Simplify simplify 
+simplify...
+ Andrew
+
+ On 4/26/05, Adam Clements <adam.clements at gmail.com> wrote: 
+> 
+> Okay then, but there are many other things to make the code cleaner
+> too, and if we simplify the syntax too much then it stops being BASIC
+> really. we need to decide on the syntax in its entirety before I code
+> any more of the runtime, there have just been vague ideas of what it
+> should do so far. Perhaps it would be more efficient if we got more C
+> coders in and made the majority of the interpreter in that and then
+> wrote an editor in the basic itself? I'm merely thinking of speed
+> issues here.. all these things need to be decided and put into a full
+> specification.
+> _______________________________________________
+> Custombasic-devel mailing list
+> Custombasic-devel at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/custombasic-devel
+> 
+
+
+
+-- 
+Heritage Linux Group
+http://www.heritagelinux.tk
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050426/e9f29d99/attachment.html>
+
+From ajdlinux at gmail.com  Tue Apr 26 02:19:02 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Tue, 26 Apr 2005 10:19:02 +1000
+Subject: [Custombasic-devel] Interpreter simplification
+Message-ID: <1007a32a05042517192e054638@mail.gmail.com>
+
+I've started on the interpreter. I'm writing it like this: make it work in 
+QB, then simplify it for the CB runtime. There's not much in it yet, but if 
+anyone wants a snapshot just ask.
+ Andrew
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050426/a558106b/attachment.html>
+
+From computerkidwanttabe at gmail.com  Tue Apr 26 05:39:04 2005
+From: computerkidwanttabe at gmail.com (Joe Computer Kid)
+Date: Mon, 25 Apr 2005 22:39:04 -0500
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1007a32a0504251701cab2331@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1007a32a05042420581a18a64f@mail.gmail.com>
+	 <b4c2547c050424211842a742c7@mail.gmail.com>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+Message-ID: <b4c2547c05042520397b811b83@mail.gmail.com>
+
+Be simple over speed in the runtime. This should be noted in the
+design document for the runtime, for this version.
+
+To be truthful and strait...
+I can already see that CB will have problems in the beginning for the
+language. But then again, remember C was a joke.
+I know this rubs my grain the wrong way, I prefer speed and
+correctness the most compared to simple and easy to work with. But
+that is me, not the project and there is no I in team.
+
+
+From ajdlinux at gmail.com  Tue Apr 26 08:41:33 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Tue, 26 Apr 2005 16:41:33 +1000
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <b4c2547c05042520397b811b83@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <b4c2547c050424211842a742c7@mail.gmail.com>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+Message-ID: <1007a32a050425234136f95176@mail.gmail.com>
+
+It'll only be in the beginning. Get the runtime over and done with and it's 
+easy from there on. Simple over speed because we need portability.
+ Andrew
+
+ On 4/26/05, Joe Computer Kid <computerkidwanttabe at gmail.com> wrote: 
+> 
+> Be simple over speed in the runtime. This should be noted in the
+> design document for the runtime, for this version.
+> 
+> To be truthful and strait...
+> I can already see that CB will have problems in the beginning for the
+> language. But then again, remember C was a joke.
+> I know this rubs my grain the wrong way, I prefer speed and
+> correctness the most compared to simple and easy to work with. But
+> that is me, not the project and there is no I in team.
+> _______________________________________________
+> Custombasic-devel mailing list
+> Custombasic-devel at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/custombasic-devel
+> 
+
+
+
+-- 
+Heritage Linux Group
+http://www.heritagelinux.tk
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050426/7b320ed5/attachment.html>
+
+From ajdlinux at gmail.com  Tue Apr 26 08:46:27 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Tue, 26 Apr 2005 16:46:27 +1000
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1007a32a050425234136f95176@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1007a32a0504242125103e9a4d@mail.gmail.com>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+Message-ID: <1007a32a0504252346775b420a@mail.gmail.com>
+
+I mean simple in the sense that it should be able to be compiled on any ANSI 
+C compiler on any platform. It's simple in the sense of correctness and 
+small size.
+ Andrew
+ On 4/26/05, Andrew Donnellan <ajdlinux at gmail.com> wrote: 
+> 
+> It'll only be in the beginning. Get the runtime over and done with and 
+> it's easy from there on. Simple over speed because we need portability.
+>  Andrew
+> 
+>  On 4/26/05, Joe Computer Kid <computerkidwanttabe at gmail.com> wrote: 
+> > 
+> > Be simple over speed in the runtime. This should be noted in the
+> > design document for the runtime, for this version. 
+> > 
+> > To be truthful and strait...
+> > I can already see that CB will have problems in the beginning for the
+> > language. But then again, remember C was a joke.
+> > I know this rubs my grain the wrong way, I prefer speed and 
+> > correctness the most compared to simple and easy to work with. But
+> > that is me, not the project and there is no I in team.
+> > _______________________________________________
+> > Custombasic-devel mailing list
+> > Custombasic-devel at lists.berlios.de
+> > http://lists.berlios.de/mailman/listinfo/custombasic-devel
+> > 
+> 
+> 
+> 
+> -- 
+> Heritage Linux Group 
+> http://www.heritagelinux.tk 
+> 
+
+
+
+-- 
+Heritage Linux Group
+http://www.heritagelinux.tk
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050426/3e90f5c0/attachment.html>
+
+From adam.clements at gmail.com  Tue Apr 26 12:40:36 2005
+From: adam.clements at gmail.com (Adam Clements)
+Date: Tue, 26 Apr 2005 11:40:36 +0100
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1007a32a0504252346775b420a@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1cef6a90504250532215adf5c@mail.gmail.com>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+Message-ID: <1cef6a9050426034027785473@mail.gmail.com>
+
+Simple it is then, but it will end up taking about 50 times as long to
+do a command as it will have to parse all the individual elements and
+so on twice over. Never mind though, could I have a source snapshot,
+then I can see what needs to be included to be going on with. I'm
+having a little trouble getting the parser working as I don't get much
+time to work on it during the week( lots of other work to do) but i'll
+try my best to get it done quickly so the project can move forward.
+Also I am waiting for the usual online times, what timezone's Joe in?
+
+
+From computerkidwanttabe at gmail.com  Tue Apr 26 22:21:57 2005
+From: computerkidwanttabe at gmail.com (Joe Computer Kid)
+Date: Tue, 26 Apr 2005 15:21:57 -0500
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1cef6a9050426034027785473@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <b4c2547c05042511254ebcf336@mail.gmail.com>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+Message-ID: <b4c2547c05042613214c55bdad@mail.gmail.com>
+
+GMT -06:00 Central USA and Canada time zone.
+
+Is there software out there to help manage developers on a project?
+Something to be able to put in a persons timezone, skills, start and
+end time available, current group(s) assigned, etc. (like a database)
+and be able to assign them tasks (which are e-mailed out) along with
+setting up meetings with groups and having a e-mail sent out to every
+one with the right time.
+In other words being able to select a few times (in your time zone)
+and e-mail every one asking which is the best for them. Then they can
+e-mail you back with the selected time (based on there time zone) and
+boom, your done. All you would have to do is e-mail the final time to
+every one (which would be changed for there time zone). It would also
+be nice if the software prompted you (in some way) that the selected
+time would be to late or to early for some one.
+--
+Computer Kid Out.
+
+
+From adam.clements at gmail.com  Tue Apr 26 22:29:27 2005
+From: adam.clements at gmail.com (Adam Clements)
+Date: Tue, 26 Apr 2005 21:29:27 +0100
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <b4c2547c05042613214c55bdad@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1cef6a9050425113761443ba6@mail.gmail.com>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+	 <b4c2547c05042613214c55bdad@mail.gmail.com>
+Message-ID: <1cef6a905042613291b0ad994@mail.gmail.com>
+
+I dunno, there are some co-ordination tools on berlios, like task assignment 
+etc, it'd b nice if we got summat up n running on that, and maybe some 
+preliminary docs/working source etc. If not then meebbe we could make some 
+software to do it lol
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050426/510320fd/attachment.html>
+
+From ajdlinux at gmail.com  Tue Apr 26 23:16:31 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Wed, 27 Apr 2005 07:16:31 +1000
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1cef6a905042613291b0ad994@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <b4c2547c05042514326733f294@mail.gmail.com>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+	 <b4c2547c05042613214c55bdad@mail.gmail.com>
+	 <1cef6a905042613291b0ad994@mail.gmail.com>
+Message-ID: <1007a32a050426141627f41a44@mail.gmail.com>
+
+I can't give you a snapshot until you give me one! I need to know how it's 
+implemented. Also, the interpreter 'passes' through all the easy 
+runtime-implemented commands to the runtime, and does not have to 
+re-implement them.
+ Andrew
+
+ On 4/27/05, Adam Clements <adam.clements at gmail.com> wrote: 
+> 
+> I dunno, there are some co-ordination tools on berlios, like task 
+> assignment etc, it'd b nice if we got summat up n running on that, and maybe 
+> some preliminary docs/working source etc. If not then meebbe we could make 
+> some software to do it lol
+> 
+
+
+
+-- 
+Heritage Linux Group
+http://www.heritagelinux.tk
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050427/a9dc0b94/attachment.html>
+
+From ajdlinux at gmail.com  Tue Apr 26 23:18:46 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Wed, 27 Apr 2005 07:18:46 +1000
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1007a32a050426141627f41a44@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1cef6a90504251446708d5c80@mail.gmail.com>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+	 <b4c2547c05042613214c55bdad@mail.gmail.com>
+	 <1cef6a905042613291b0ad994@mail.gmail.com>
+	 <1007a32a050426141627f41a44@mail.gmail.com>
+Message-ID: <1007a32a05042614186e295b6@mail.gmail.com>
+
+I'll be away for the next 3 days (leaving at about 8 AM (10 PM GMT)), so 
+this will probably be my last email until Saturday.
+ Andrew
+
+ On 4/27/05, Andrew Donnellan <ajdlinux at gmail.com> wrote: 
+> 
+> I can't give you a snapshot until you give me one! I need to know how it's 
+> implemented. Also, the interpreter 'passes' through all the easy 
+> runtime-implemented commands to the runtime, and does not have to 
+> re-implement them. 
+>  Andrew
+> 
+>  On 4/27/05, Adam Clements <adam.clements at gmail.com> wrote: 
+> > 
+> > I dunno, there are some co-ordination tools on berlios, like task 
+> > assignment etc, it'd b nice if we got summat up n running on that, and maybe 
+> > some preliminary docs/working source etc. If not then meebbe we could make 
+> > some software to do it lol 
+> > 
+> 
+> 
+> 
+> -- 
+> Heritage Linux Group
+> http://www.heritagelinux.tk 
+> 
+
+
+
+-- 
+Heritage Linux Group
+http://www.heritagelinux.tk
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050427/cff3167c/attachment.html>
+
+From computerkidwanttabe at gmail.com  Wed Apr 27 00:23:55 2005
+From: computerkidwanttabe at gmail.com (Joe Computer Kid)
+Date: Tue, 26 Apr 2005 17:23:55 -0500
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1007a32a05042614186e295b6@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1007a32a0504251701cab2331@mail.gmail.com>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+	 <b4c2547c05042613214c55bdad@mail.gmail.com>
+	 <1cef6a905042613291b0ad994@mail.gmail.com>
+	 <1007a32a050426141627f41a44@mail.gmail.com>
+	 <1007a32a05042614186e295b6@mail.gmail.com>
+Message-ID: <b4c2547c0504261523775c83f@mail.gmail.com>
+
+I am no longer a database programmer, I feel in love with graphics and
+music, in short games. I don't create databases or front-ends
+anymore...but I could try to get back into it if we need some software
+to help us orgnize.
+
+I'll start work on a little tool to help us keep time strate, that
+shouldn't be hard. (I hope)
+
+Take care Andrew! Hope you have fun!
+
+And yes we need to get all the design documents done before we realy
+jump into this. I use to program with out them (when I was learning),
+now that is the first thing I do. I don't always use a full design
+document but I do use one.
+-- 
+Computer Kid Out
+
+
+From computerkidwanttabe at gmail.com  Wed Apr 27 00:24:35 2005
+From: computerkidwanttabe at gmail.com (Joe Computer Kid)
+Date: Tue, 26 Apr 2005 17:24:35 -0500
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <b4c2547c0504261523775c83f@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <b4c2547c05042520397b811b83@mail.gmail.com>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+	 <b4c2547c05042613214c55bdad@mail.gmail.com>
+	 <1cef6a905042613291b0ad994@mail.gmail.com>
+	 <1007a32a050426141627f41a44@mail.gmail.com>
+	 <1007a32a05042614186e295b6@mail.gmail.com>
+	 <b4c2547c0504261523775c83f@mail.gmail.com>
+Message-ID: <b4c2547c05042615242bf3c2fe@mail.gmail.com>
+
+P.S. I'm signing off for today, so see ya tomorrow (my time).
+
+
+From ajdlinux at gmail.com  Fri Apr 29 10:04:11 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Fri, 29 Apr 2005 18:04:11 +1000
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <b4c2547c05042615242bf3c2fe@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1007a32a050425234136f95176@mail.gmail.com>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+	 <b4c2547c05042613214c55bdad@mail.gmail.com>
+	 <1cef6a905042613291b0ad994@mail.gmail.com>
+	 <1007a32a050426141627f41a44@mail.gmail.com>
+	 <1007a32a05042614186e295b6@mail.gmail.com>
+	 <b4c2547c0504261523775c83f@mail.gmail.com>
+	 <b4c2547c05042615242bf3c2fe@mail.gmail.com>
+Message-ID: <1007a32a050429010413a9d634@mail.gmail.com>
+
+I'm back! It was fun, doing ski biscutting and so on (getting slammed into 
+the water at 35kph). I'll finish the designs off soon. We need a tool where 
+we can input developers, time zones and online times and end up with a time 
+for each developer. If it's in C or something, I'll port it to CB 
+eventually.
+ The design docs will be ready soon (i.e. full ones) and will just need a 
+stamp of approval to make it official.
+ Andrew
+
+ On 4/27/05, Joe Computer Kid <computerkidwanttabe at gmail.com> wrote: 
+> 
+> P.S. I'm signing off for today, so see ya tomorrow (my time).
+> _______________________________________________
+> Custombasic-devel mailing list
+> Custombasic-devel at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/custombasic-devel
+> 
+
+
+
+-- 
+Heritage Linux Group
+http://www.heritagelinux.tk
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050429/8295b920/attachment.html>
+
+From adam.clements at gmail.com  Fri Apr 29 14:20:10 2005
+From: adam.clements at gmail.com (Adam Clements)
+Date: Fri, 29 Apr 2005 13:20:10 +0100
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1007a32a050429010413a9d634@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1007a32a0504252346775b420a@mail.gmail.com>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+	 <b4c2547c05042613214c55bdad@mail.gmail.com>
+	 <1cef6a905042613291b0ad994@mail.gmail.com>
+	 <1007a32a050426141627f41a44@mail.gmail.com>
+	 <1007a32a05042614186e295b6@mail.gmail.com>
+	 <b4c2547c0504261523775c83f@mail.gmail.com>
+	 <b4c2547c05042615242bf3c2fe@mail.gmail.com>
+	 <1007a32a050429010413a9d634@mail.gmail.com>
+Message-ID: <1cef6a905042905205e78f2fa@mail.gmail.com>
+
+okay, the runtime is coming along quite slowly at the moment, i have a lot 
+of work on and its kinda been shunted down my priorities list. Though when 
+playing with the wiki page on berlios i thought i may as well write out my 
+intentions as to the command set. it is as requested about as simple as you 
+can get. 
+
+On 4/29/05, Andrew Donnellan <ajdlinux at gmail.com> wrote: 
+> 
+> I'm back! It was fun, doing ski biscutting and so on (getting slammed into 
+> the water at 35kph). I'll finish the designs off soon. We need a tool where 
+> we can input developers, time zones and online times and end up with a time 
+> for each developer. If it's in C or something, I'll port it to CB 
+> eventually. 
+>  The design docs will be ready soon (i.e. full ones) and will just need a 
+> stamp of approval to make it official.
+>  Andrew
+> 
+>  On 4/27/05, Joe Computer Kid <computerkidwanttabe at gmail.com> wrote: 
+> > 
+> > P.S. I'm signing off for today, so see ya tomorrow (my time).
+> > _______________________________________________ 
+> > Custombasic-devel mailing list
+> > Custombasic-devel at lists.berlios.de
+> > http://lists.berlios.de/mailman/listinfo/custombasic-devel 
+> > 
+> 
+> 
+> 
+> -- 
+> Heritage Linux Group
+> http://www.heritagelinux.tk 
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/custombasic-devel/attachments/20050429/e554f3f0/attachment.html>
+
+From computerkidwanttabe at gmail.com  Fri Apr 29 22:51:29 2005
+From: computerkidwanttabe at gmail.com (Joe Computer Kid)
+Date: Fri, 29 Apr 2005 15:51:29 -0500
+Subject: [Custombasic-devel] Developer [Group] Manage ment
+Message-ID: <b4c2547c05042913516682c43a@mail.gmail.com>
+
+I was only thinking about doing a front end to a database and put some
+features into that software. But with what it would turn out to be I
+would be building a good management tool. This software would also be
+in Visual Basic 6.0 which you want to be in C, I don't know C that
+well yet. So, as always before I go coding my hart out and taking on
+new problems I look around to see if anyone else has done the same
+thing. I came out with three software projects that MIGHT meet most of
+our needs for management. That is the positive side, now the negative
+part. They all run in a Internet fashion, so it needs to be on a
+server (website even) and everyone can login and manage that way. I
+know that Sourceforge will allow this type of thing for development,
+but I don't know about BOS.
+
+Here are the links:
+
+http://sourceforge.net/projects/phprojekt/
+PHProjekt is an application suite that supports communication and
+management of teams and companies. It includes a group calendar,
+project management, a request tracker and 12 other modules in 26
+languages. See homepage for more details
+
+http://sourceforge.net/projects/moregroupware/
+Web-based groupware written in PHP. Including modules like webmail,
+notes, todo, contacts, project management, calendar and others.
+
+http://sourceforge.net/projects/egroupware/
+eGroupWare is a multi-user, web-based groupware suite developed on a
+custom set of PHP-based APIs. Currently available modules include:
+email, addressbook, calendar, infolog (notes, to-do's, phone calls),
+content management, forum, bookmarks, wiki
+
+-- 
+Computer Kid Out
+
+
+From computerkidwanttabe at gmail.com  Fri Apr 29 23:08:22 2005
+From: computerkidwanttabe at gmail.com (Joe Computer Kid)
+Date: Fri, 29 Apr 2005 16:08:22 -0500
+Subject: [Custombasic-devel] Re: Developer [Group] Manage ment
+In-Reply-To: <b4c2547c05042913516682c43a@mail.gmail.com>
+References: <b4c2547c05042913516682c43a@mail.gmail.com>
+Message-ID: <b4c2547c05042914089348c7e@mail.gmail.com>
+
+Sorry, forgot to pre-fix these e-mail clipings to the start of my e-mail.
+
+On 4/26/05, Joe Computer Kid <computerkidwanttabe at gmail.com> wrote:
+> GMT -06:00 Central USA and Canada time zone.
+> 
+> Is there software out there to help manage developers on a project?
+> Something to be able to put in a persons timezone, skills, start and
+> end time available, current group(s) assigned, etc. (like a database)
+> and be able to assign them tasks (which are e-mailed out) along with
+> setting up meetings with groups and having a e-mail sent out to every
+> one with the right time.
+> In other words being able to select a few times (in your time zone)
+> and e-mail every one asking which is the best for them. Then they can
+> e-mail you back with the selected time (based on there time zone) and
+> boom, your done. All you would have to do is e-mail the final time to
+> every one (which would be changed for there time zone). It would also
+> be nice if the software prompted you (in some way) that the selected
+> time would be to late or to early for some one.
+> --
+> Computer Kid Out.
+> 
+
+On 4/26/05, Adam Clements <adam.clements at gmail.com> wrote:
+> I dunno, there are some co-ordination tools on berlios, like task assignment
+> etc, it'd b nice if we got summat up n running on that, and maybe some
+> preliminary docs/working source etc. If not then meebbe we could make some
+> software to do it lol
+> 
+
+On 4/26/05, Joe Computer Kid <computerkidwanttabe at gmail.com> wrote:
+> I am no longer a database programmer, I feel in love with graphics and
+> music, in short games. I don't create databases or front-ends
+> anymore...but I could try to get back into it if we need some software
+> to help us orgnize.
+> 
+> I'll start work on a little tool to help us keep time strate, that
+> shouldn't be hard. (I hope)
+>  ...
+> --
+> Computer Kid Out
+> 
+
+On 4/29/05, Andrew Donnellan <ajdlinux at gmail.com> wrote:
+> ... We need a tool where
+> we can input developers, time zones and online times and end up with a time
+> for each developer. If it's in C or something, I'll port it to CB
+> eventually. 
+
+
+On 4/29/05, Joe Computer Kid <computerkidwanttabe at gmail.com> wrote:
+> I was only thinking about doing a front end to a database and put some
+> features into that software. But with what it would turn out to be I
+> would be building a good management tool. This software would also be
+> in Visual Basic 6.0 which you want to be in C, I don't know C that
+> well yet. So, as always before I go coding my hart out and taking on
+> new problems I look around to see if anyone else has done the same
+> thing. I came out with three software projects that MIGHT meet most of
+> our needs for management. That is the positive side, now the negative
+> part. They all run in a Internet fashion, so it needs to be on a
+> server (website even) and everyone can login and manage that way. I
+> know that Sourceforge will allow this type of thing for development,
+> but I don't know about BOS.
+> 
+> Here are the links:
+> 
+> http://sourceforge.net/projects/phprojekt/
+> PHProjekt is an application suite that supports communication and
+> management of teams and companies. It includes a group calendar,
+> project management, a request tracker and 12 other modules in 26
+> languages. See homepage for more details
+> 
+> http://sourceforge.net/projects/moregroupware/
+> Web-based groupware written in PHP. Including modules like webmail,
+> notes, todo, contacts, project management, calendar and others.
+> 
+> http://sourceforge.net/projects/egroupware/
+> eGroupWare is a multi-user, web-based groupware suite developed on a
+> custom set of PHP-based APIs. Currently available modules include:
+> email, addressbook, calendar, infolog (notes, to-do's, phone calls),
+> content management, forum, bookmarks, wiki
+> 
+> --
+> Computer Kid Out
+> 
+
+
+-- 
+Computer Kid Out
+
+
+From adam.clements at gmail.com  Sat Apr 30 02:27:09 2005
+From: adam.clements at gmail.com (Adam Clements)
+Date: Sat, 30 Apr 2005 01:27:09 +0100
+Subject: [Custombasic-devel] Re: Developer [Group] Manage ment
+In-Reply-To: <b4c2547c05042914089348c7e@mail.gmail.com>
+References: <b4c2547c05042913516682c43a@mail.gmail.com>
+	 <b4c2547c05042914089348c7e@mail.gmail.com>
+Message-ID: <1cef6a9050429172736716e9c@mail.gmail.com>
+
+Just a quick update on the state of the runtime, its about halfway
+there, I've recently ironed out some problems I was having. I'm
+wondering when we're gna start uploading n comparing source code etc,
+don' think we are making enough use of the berlios site. For example,
+I know that andrew is working on the full interpreter, but i have no
+idea what joe is doing at the moment, or where everyone is. Have you
+looked at the syntax listing on the wiki? will that command set be
+sufficient? if not what extensions need to be made? Would you like a
+source snapshot so far (well, of the bit that's finished completely,
+the command line parser which passes the commands on to be executed)
+and if so where do I send it? or do you not need to see this yet as
+you are only concerned with the syntax it will use? I'm off ot bed
+now, hopefully i'll get a few minutes tomorrow to spare to get some
+more done.
+
+

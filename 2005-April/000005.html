@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/custombasic-devel/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:custombasic-devel%40lists.berlios.de?Subject=Re%3A%20%5BCustombasic-devel%5D%20Re%3A%20Q%3A%20What%20Programing%20Language%20are%20we%20using%20for%20CustomBasic%20%28CB%29&In-Reply-To=%3C1cef6a9050425113761443ba6%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   <LINK REL="Next"  HREF="000006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)</H1>
+    <B>Adam Clements</B> 
+    <A HREF="mailto:custombasic-devel%40lists.berlios.de?Subject=Re%3A%20%5BCustombasic-devel%5D%20Re%3A%20Q%3A%20What%20Programing%20Language%20are%20we%20using%20for%20CustomBasic%20%28CB%29&In-Reply-To=%3C1cef6a9050425113761443ba6%40mail.gmail.com%3E"
+       TITLE="[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)">adam.clements at gmail.com
+       </A><BR>
+    <I>Mon Apr 25 20:37:05 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+</A></li>
+        <LI>Next message: <A HREF="000006.html">[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Could do, only thing is, originally this was meant to be the simplest
+possible version and all higher level convenience functions would be
+taken care of later. This would mean that things like having
+PRINT &quot;Hello &quot; + world$ + str$(5+5)
+
+would in full be:
+
+output$ = &quot;Hello &quot; + world$
+world$ = str$(5+5)
+output$ = output$ + world$
+PRINT output$
+(N.B. world$ re-used for convenience)
+
+do you get my point? advanced compound functions I thought were to be
+taken care of by the interpreter and the runtime jsut cope with
+smaller chunks. I'm not saying that taht's the right way to do it
+because its obviously goign to be a lot slower that way, the more code
+the interpreter does which could be performed directly by the runtime,
+the bulkier teh project will be, but that is how i understood the
+original brief.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+</A></li>
+	<LI>Next message: <A HREF="000006.html">[Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/custombasic-devel">More information about the Custombasic-devel
+mailing list</a><br>
+</body></html>

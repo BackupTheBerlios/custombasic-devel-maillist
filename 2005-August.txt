@@ -1,0 +1,74 @@
+From ajdlinux at gmail.com  Thu Aug 18 06:00:14 2005
+From: ajdlinux at gmail.com (Andrew Donnellan)
+Date: Thu, 18 Aug 2005 14:00:14 +1000
+Subject: [Custombasic-devel] Re: Q: What Programing Language are we using for CustomBasic (CB)
+In-Reply-To: <1cef6a905042905205e78f2fa@mail.gmail.com>
+References: <200504222123.j3MLN7ud019803@unicorn.berlios.de>
+	 <1cef6a9050426034027785473@mail.gmail.com>
+	 <b4c2547c05042613214c55bdad@mail.gmail.com>
+	 <1cef6a905042613291b0ad994@mail.gmail.com>
+	 <1007a32a050426141627f41a44@mail.gmail.com>
+	 <1007a32a05042614186e295b6@mail.gmail.com>
+	 <b4c2547c0504261523775c83f@mail.gmail.com>
+	 <b4c2547c05042615242bf3c2fe@mail.gmail.com>
+	 <1007a32a050429010413a9d634@mail.gmail.com>
+	 <1cef6a905042905205e78f2fa@mail.gmail.com>
+Message-ID: <1007a32a050817210010062b65@mail.gmail.com>
+
+we haven't discussed for a while, but I've looked at what Adam's put
+on the wiki. I would need Mid$ but other than that I can write a fair
+bit of interpreter on the basic commands given.
+
+How I plan to write: 
+1. Write an interpreter in QB/FB.
+2. Simplify it down to the basic commands. (I may write a translation program)
+
+Andrew
+
+On 4/29/05, Adam Clements <adam.clements at gmail.com> wrote:
+> okay, the runtime is coming along quite slowly at the moment, i have a lot
+> of work on and its kinda been shunted down my priorities list. Though when
+> playing with the wiki page on berlios i thought i may as well write out my
+> intentions as to the command set. it is as requested about as simple as you
+> can get. 
+> 
+> 
+> On 4/29/05, Andrew Donnellan <ajdlinux at gmail.com> wrote: 
+> > 
+> > I'm back! It was fun, doing ski biscutting and so on (getting slammed into
+> the water at 35kph). I'll finish the designs off soon. We need a tool where
+> we can input developers, time zones and online times and end up with a time
+> for each developer. If it's in C or something, I'll port it to CB
+> eventually. 
+> >  
+> > The design docs will be ready soon (i.e. full ones) and will just need a
+> stamp of approval to make it official.
+> >  
+> > Andrew
+> > 
+> >  
+> > 
+> > On 4/27/05, Joe Computer Kid <computerkidwanttabe at gmail.com > wrote: 
+> > > P.S. I'm signing off for today, so see ya tomorrow (my time).
+> > > _______________________________________________ 
+> > > Custombasic-devel mailing list
+> > > Custombasic-devel at lists.berlios.de
+> > >
+> http://lists.berlios.de/mailman/listinfo/custombasic-devel
+> > > 
+> > 
+> > 
+> > 
+> > 
+> > -- 
+> > Heritage Linux Group
+> > http://www.heritagelinux.tk 
+> 
+> 
+
+
+-- 
+This space for rent. Enquire within. Terms and conditions apply. See
+store for details.
+
+
